@@ -37,8 +37,8 @@ router.get('/:id/email', function(req, res, next) {
     host: "smtp.mailtrap.io",
     port: 2525,
     auth: {
-      user: "fa624ce73462e6",
-      pass: "4a1231604de840"
+      user: process.env.MAILTRAP_USERNAME,
+      pass: process.env.MAILTRAP_PASSWORD,
     }
   });
 
