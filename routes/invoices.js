@@ -3,7 +3,7 @@ const router = express.Router();
 const nodemailer = require('nodemailer');
 const invoices = require('../data/invoices.json');
 
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   res.render('invoice-list', {
     invoices: invoices,
     success: req.query['success'],
@@ -11,7 +11,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/:id', function(req, res, next) {
+router.get('/:id', function(req, res) {
   const invoice = invoices.find(invoice => invoice.id === req.params['id']);
   if (!invoice) {
     res.redirect('/invoices');
@@ -24,7 +24,7 @@ router.get('/:id', function(req, res, next) {
   res.render('invoice-single', { invoice, date });
 });
 
-router.get('/:id/email', function(req, res, next) {
+router.get('/:id/email', function(req, res) {
   const invoice = invoices.find(invoice => invoice.id === req.params['id']);
   if (!invoice) {
     res.redirect('/invoices?error=1');
@@ -55,7 +55,7 @@ router.get('/:id/email', function(req, res, next) {
     ]
   };
 
-  transport.sendMail(message, function (err, info) {
+  transport.sendMail(message, function (err) {
     if (err) {
       // If failure
       res.redirect('/invoices?error=1');
