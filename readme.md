@@ -1,6 +1,6 @@
-# Foxit Email Invoice
+# Sending PDF Invoices in Email with Foxit
 
-This Node application demonstrates using the Foxit HTML2PDF tool to generate invoices
+This Node application demonstrates using the Foxit HTMLtoPDF tool to generate invoices
 and email them to your clients.
 
 ## Prerequisites
@@ -11,8 +11,8 @@ and email them to your clients.
 ## Setup
 - Clone this repository
 - Install dependencies: `npm i`
-- Log into Mailtrap to get your username and password. Test emails will be sent here.
-- Run the local server: `MAILTRAP_USERNAME=<YOUR_MAILTRAP_SMTP_USERNAME> MAILTRAP_PASSWORD=<YOUR_MAILTRAP_SMTP_PASSWORD> npm start`
+- Update the `htmlToPdfPath` variable in the `routes/invoices.js` file with the path to your Foxit HTMLtoPDF executable.
+- Run the local server: `npm start`
 - Visit [localhost:3000/invoices](http://localhost:3000/invoices) and click "Email Reminder" to try it out
 
 ### Web application
