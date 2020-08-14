@@ -37,7 +37,7 @@ router.get('/:id/email', function(req, res) {
 
   // Convert the HTML to PDF
   exec(
-    `${htmlToPdfPath} -h localhost:3000/invoices/${req.params['id']} -o ${outputFolder}${req.params['id']}.pdf`,
+    `${htmlToPdfPath} -html http://localhost:3000/invoices/${req.params['id']} -o ${outputFolder}${req.params['id']}.pdf`,
     (err, stdout, stderr) => {
       if (err || stderr) {
         console.error(err, stderr);
